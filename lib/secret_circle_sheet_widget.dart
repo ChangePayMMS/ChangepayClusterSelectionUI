@@ -35,6 +35,15 @@ class _SecretCircleBottomSheetState extends State<SecretCircleBottomSheet> {
   }
 
   @override
+  void initState() {
+    _textEditingController
+      ..addListener(() {
+        setState(() {});
+      });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Material(
       type: MaterialType.transparency,
@@ -82,14 +91,18 @@ class _SecretCircleBottomSheetState extends State<SecretCircleBottomSheet> {
             ),
             InkWell(
               onTap: () {
+                if (_textEditingController.text.isEmpty) return;
                 Navigator.pop(context);
                 widget.onAddCircle(_textEditingController.text.toUpperCase());
               },
               child: Container(
                 height: 42 * MediaQuery.of(context).size.height / 667,
                 decoration: BoxDecoration(
-                    color: CustomTheme.of(context).colors.secondaryColor,
-                    borderRadius: BorderRadius.circular(4)),
+                  color: _textEditingController.text.isNotEmpty
+                      ? CustomTheme.of(context).colors.secondaryColor
+                      : CustomTheme.of(context).colors.disabledAreaColor,
+                  borderRadius: BorderRadius.circular(4),
+                ),
                 child: Center(
                   child: Icon(
                     Icons.add,
