@@ -16,13 +16,12 @@ class LocationDisabledView extends StatelessWidget {
   final String locationPointerImagePath;
 
   const LocationDisabledView(
-      {Key key,
-      @required this.onTapLocationAction,
-      @required this.circleLocationLocalisedString,
-      @required this.turnOnLocationLocalisedString,
-      @required this.locationPointerImagePath})
-      : assert(onTapLocationAction != null),
-        super(key: key);
+      {Key? key,
+      required this.onTapLocationAction,
+      required this.circleLocationLocalisedString,
+      required this.turnOnLocationLocalisedString,
+      required this.locationPointerImagePath})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +36,11 @@ class LocationDisabledView extends StatelessWidget {
             child: Text(
               circleLocationLocalisedString,
               textAlign: TextAlign.center,
-              style: CustomTheme.of(context)
+              style: EsamudaayTheme.of(context)
                   .textStyles
                   .sectionHeading2
                   .copyWith(
-                      color: CustomTheme.of(context).colors.disabledAreaColor),
+                      color: EsamudaayTheme.of(context).colors.disabledAreaColor),
             ),
           ),
           const SizedBox(
@@ -56,21 +55,21 @@ class LocationDisabledView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4.0),
                 border: Border.all(
                     width: 1.5,
-                    color: CustomTheme.of(context).colors.primaryColor),
+                    color: EsamudaayTheme.of(context).colors.primaryColor),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
                     locationPointerImagePath,
-                    color: CustomTheme.of(context).colors.primaryColor,
+                    color: EsamudaayTheme.of(context).colors.primaryColor,
                   ),
                   const SizedBox(
                     width: 5.0,
                   ),
                   Text(
                     turnOnLocationLocalisedString,
-                    style: CustomTheme.of(context).textStyles.sectionHeading1,
+                    style: EsamudaayTheme.of(context).textStyles.sectionHeading1,
                   ),
                 ],
               ),

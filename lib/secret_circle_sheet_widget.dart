@@ -1,4 +1,4 @@
-import 'package:circles/themes/custom_theme.dart';
+import 'package:esamudaay_themes/esamudaay_themes.dart';
 import 'package:flutter/material.dart';
 
 ///
@@ -15,9 +15,9 @@ class SecretCircleBottomSheet extends StatefulWidget {
   final String circleEnterCodeLocalisedString;
 
   const SecretCircleBottomSheet(
-      {Key key,
-      @required this.onAddCircle,
-      @required this.circleEnterCodeLocalisedString})
+      {Key? key,
+      required this.onAddCircle,
+      required this.circleEnterCodeLocalisedString})
       : super(key: key);
 
   @override
@@ -59,7 +59,7 @@ class _SecretCircleBottomSheetState extends State<SecretCircleBottomSheet> {
             MediaQuery.of(context).viewInsets.bottom,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            color: CustomTheme.of(context).colors.backgroundColor),
+            color: EsamudaayTheme.of(context).colors.backgroundColor),
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
         child: Column(
           children: [
@@ -67,21 +67,21 @@ class _SecretCircleBottomSheetState extends State<SecretCircleBottomSheet> {
               controller: _textEditingController,
               decoration: InputDecoration(
                 hintText: widget.circleEnterCodeLocalisedString,
-                hintStyle: CustomTheme.of(context)
+                hintStyle: EsamudaayTheme.of(context)
                     .themeData
                     .textTheme
-                    .subtitle1
+                    .subtitle1!
                     .copyWith(
                         color:
-                            CustomTheme.of(context).colors.disabledAreaColor),
+                            EsamudaayTheme.of(context).colors.disabledAreaColor),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                      color: CustomTheme.of(context).colors.shadowColor16),
+                      color: EsamudaayTheme.of(context).colors.shadowColor16),
                   borderRadius: BorderRadius.circular(5),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                      color: CustomTheme.of(context).colors.secondaryColor),
+                      color: EsamudaayTheme.of(context).colors.secondaryColor),
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
@@ -99,14 +99,14 @@ class _SecretCircleBottomSheetState extends State<SecretCircleBottomSheet> {
                 height: 42 * MediaQuery.of(context).size.height / 667,
                 decoration: BoxDecoration(
                   color: _textEditingController.text.isNotEmpty
-                      ? CustomTheme.of(context).colors.secondaryColor
-                      : CustomTheme.of(context).colors.disabledAreaColor,
+                      ? EsamudaayTheme.of(context).colors.secondaryColor
+                      : EsamudaayTheme.of(context).colors.disabledAreaColor,
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Center(
                   child: Icon(
                     Icons.add,
-                    color: CustomTheme.of(context).colors.backgroundColor,
+                    color: EsamudaayTheme.of(context).colors.backgroundColor,
                   ),
                 ),
               ),

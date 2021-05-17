@@ -9,10 +9,10 @@ class CircleTileType {
   final String circleId;
 
   CircleTileType(
-      {@required this.imageUrl,
-      @required this.circleId,
-      @required this.circleCode,
-      @required this.circleName,
-      @required this.circleDescription,
-      @required this.isSelected});
+      {required this.imageUrl,
+      required this.circleId,
+      required this.circleCode,
+      required this.circleName,
+      required this.circleDescription,
+      required this.isSelected});
 }

@@ -16,20 +16,20 @@ class CircleInfoFooter extends StatefulWidget {
   final VoidCallback setCurrentUserAsAdvancedCallback;
 
   const CircleInfoFooter(
-      {@required this.onTapCallBack,
-      @required this.isAdvancedUser,
-      @required this.circleBrandingLocalisedText,
-      @required this.circleInfo1LocalisedText,
-      @required this.circleInfo2LocalisedText,
-      @required this.setCurrentUserAsAdvancedCallback});
+      {required this.onTapCallBack,
+      required this.isAdvancedUser,
+      required this.circleBrandingLocalisedText,
+      required this.circleInfo1LocalisedText,
+      required this.circleInfo2LocalisedText,
+      required this.setCurrentUserAsAdvancedCallback});
 
   @override
   _CircleInfoFooterState createState() => _CircleInfoFooterState();
 }
 
 class _CircleInfoFooterState extends State<CircleInfoFooter> {
-  bool _isAdvancedUser;
-  int tapCount;
+  bool? _isAdvancedUser;
+  late int tapCount;
 
   @override
   void initState() {
@@ -55,8 +55,8 @@ class _CircleInfoFooterState extends State<CircleInfoFooter> {
             onTap: secretCodeActionHandler,
             child: Text(
               widget.circleBrandingLocalisedText,
-              style: CustomTheme.of(context).textStyles.topTileTitle.copyWith(
-                  color: CustomTheme.of(context).colors.disabledAreaColor),
+              style: EsamudaayTheme.of(context).textStyles.topTileTitle.copyWith(
+                  color: EsamudaayTheme.of(context).colors.disabledAreaColor),
             ),
           ),
           const SizedBox(
@@ -64,9 +64,9 @@ class _CircleInfoFooterState extends State<CircleInfoFooter> {
           ),
           Text(
             widget.circleInfo1LocalisedText,
-            style: CustomTheme.of(context).textStyles.sectionHeading1.copyWith(
+            style: EsamudaayTheme.of(context).textStyles.sectionHeading1.copyWith(
                 fontWeight: FontWeight.w400,
-                color: CustomTheme.of(context).colors.disabledAreaColor),
+                color: EsamudaayTheme.of(context).colors.disabledAreaColor),
             textAlign: TextAlign.center,
           ),
           const SizedBox(
@@ -74,8 +74,8 @@ class _CircleInfoFooterState extends State<CircleInfoFooter> {
           ),
           Text(
             widget.circleInfo2LocalisedText,
-            style: CustomTheme.of(context).textStyles.sectionHeading1.copyWith(
-                color: CustomTheme.of(context).colors.disabledAreaColor,
+            style: EsamudaayTheme.of(context).textStyles.sectionHeading1.copyWith(
+                color: EsamudaayTheme.of(context).colors.disabledAreaColor,
                 fontWeight: FontWeight.w400),
             textAlign: TextAlign.center,
           ),
