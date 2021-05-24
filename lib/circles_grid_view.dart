@@ -10,7 +10,7 @@ class CircleTileGridView extends StatelessWidget {
   ///The function to be invoked if user taps on delete icon. If this is null
   ///the delete icon is not shown
   ///
-  final Function(String, String) onDelete;
+  final Function(String, String)? onDelete;
 
   ///
   ///Function to be invoked if user taps on the circle tile
@@ -20,11 +20,11 @@ class CircleTileGridView extends StatelessWidget {
   //final String circleTilePlaceholderImagePath;
 
   const CircleTileGridView(
-      {Key key,
-      @required this.tilesDataList,
+      {Key? key,
+      required this.tilesDataList,
       //@required this.circleTilePlaceholderImagePath,
       this.onDelete,
-      @required this.onTap})
+      required this.onTap})
       : super(key: key);
 
   @override
@@ -53,10 +53,10 @@ class CircleTileGridView extends StatelessWidget {
             isSelected: tilesDataList[index].isSelected,
             onDelete: onDelete != null
                 ? () {
-                    onDelete(tilesDataList[index].circleCode,
+                    onDelete!(tilesDataList[index].circleCode,
                         tilesDataList[index].circleId);
                   }
-                : onDelete,
+                : () {},
             circleName: tilesDataList[index].circleName,
             circleDescription: tilesDataList[index].circleDescription,
             //circleTilePlaceholderImagePath: circleTilePlaceholderImagePath,

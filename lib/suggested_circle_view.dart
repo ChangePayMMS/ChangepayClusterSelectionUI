@@ -14,8 +14,8 @@ class SuggestedNearbyCirclesView extends StatelessWidget {
   /// If location is disabled/permission denied we don't show the grid
   /// but the button to enable it
   final bool isLocationDisabled;
-  final Function(String) onSelectCircle;
-  final VoidCallback onTapLocationAction;
+  final Function(String)? onSelectCircle;
+  final VoidCallback? onTapLocationAction;
   //final String circleTilePlaceholderImagePath;
   final String turnOnLocationLocalisedString;
   final String circleLocationLocalisedString;
@@ -24,17 +24,17 @@ class SuggestedNearbyCirclesView extends StatelessWidget {
   final String nearbyCircleLabelLocalisedString;
 
   const SuggestedNearbyCirclesView(
-      {Key key,
-      this.suggestedCirclesList,
+      {Key? key,
+      required this.suggestedCirclesList,
       //this.circleTilePlaceholderImagePath,
       this.onSelectCircle,
       this.onTapLocationAction,
-      @required this.isLocationDisabled,
-      @required this.turnOnLocationLocalisedString,
-      @required this.circleLocationLocalisedString,
-      @required this.locationPointerImagePath,
-      @required this.suggestedCircleLabelLocalisedString,
-      @required this.nearbyCircleLabelLocalisedString})
+      required this.isLocationDisabled,
+      required this.turnOnLocationLocalisedString,
+      required this.circleLocationLocalisedString,
+      required this.locationPointerImagePath,
+      required this.suggestedCircleLabelLocalisedString,
+      required this.nearbyCircleLabelLocalisedString})
       : super(key: key);
 
   @override
@@ -49,7 +49,7 @@ class SuggestedNearbyCirclesView extends StatelessWidget {
             padding: const EdgeInsets.only(top: 15.0, left: 24.0),
             child: Text(
               suggestedCircleLabelLocalisedString,
-              style: CustomTheme.of(context).textStyles.sectionHeading2,
+              style: EsamudaayTheme.of(context).textStyles.sectionHeading2,
             ),
           ),
           const SizedBox(
@@ -59,12 +59,12 @@ class SuggestedNearbyCirclesView extends StatelessWidget {
             padding: const EdgeInsets.only(left: 24),
             child: Text(
               nearbyCircleLabelLocalisedString,
-              style: CustomTheme.of(context).textStyles.body2Faded,
+              style: EsamudaayTheme.of(context).textStyles.body2Faded,
             ),
           ),
           if (isLocationDisabled)
             LocationDisabledView(
-              onTapLocationAction: onTapLocationAction,
+              onTapLocationAction: onTapLocationAction ?? () {},
               turnOnLocationLocalisedString: turnOnLocationLocalisedString,
               circleLocationLocalisedString: circleLocationLocalisedString,
               locationPointerImagePath: locationPointerImagePath,
@@ -74,7 +74,7 @@ class SuggestedNearbyCirclesView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: CircleTileGridView(
                 tilesDataList: suggestedCirclesList,
-                onTap: onSelectCircle,
+                onTap: onSelectCircle ?? (v) {},
                 //circleTilePlaceholderImagePath: circleTilePlaceholderImagePath,
               ),
             )

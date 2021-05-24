@@ -1,25 +1,23 @@
 part of esamudaay_circles;
 
-
-
 class CircleTileWidget extends StatelessWidget {
   final String imageUrl;
   final String circleName;
   final String circleDescription;
   final VoidCallback onTap;
-  final VoidCallback onDelete;
+  final VoidCallback? onDelete;
   final bool isSelected;
   //final String circleTilePlaceholderImagePath;
 
   const CircleTileWidget(
-      {Key key,
-      @required this.imageUrl,
+      {Key? key,
+      required this.imageUrl,
       //@required this.circleTilePlaceholderImagePath,
-      @required this.onTap,
-      @required this.isSelected,
-      @required this.onDelete,
-      @required this.circleName,
-      @required this.circleDescription})
+      required this.onTap,
+      required this.isSelected,
+      this.onDelete,
+      required this.circleName,
+      required this.circleDescription})
       : super(key: key);
 
   @override
@@ -33,13 +31,13 @@ class CircleTileWidget extends StatelessWidget {
         onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
-              color: CustomTheme.of(context).colors.backgroundColor,
+              color: EsamudaayTheme.of(context).colors.backgroundColor,
               borderRadius: BorderRadius.circular(4),
               boxShadow: [
                 BoxShadow(
                     blurRadius: 6.0,
                     offset: Offset(0, 3),
-                    color: CustomTheme.of(context).colors.shadowColor16)
+                    color: EsamudaayTheme.of(context).colors.shadowColor16)
               ]),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,11 +53,11 @@ class CircleTileWidget extends StatelessWidget {
                             topLeft: Radius.circular(4)),
                         child: CachedNetworkImage(
                           fit: BoxFit.cover,
-                          imageUrl: imageUrl ?? "",
+                          imageUrl: imageUrl,
                           placeholder: (context, url) =>
                               const CupertinoActivityIndicator(),
                           errorWidget: (context, url, error) => Container(
-                              color: CustomTheme.of(context)
+                              color: EsamudaayTheme.of(context)
                                   .colors
                                   .placeHolderColor,
                               child: Image.asset(
@@ -80,7 +78,7 @@ class CircleTileWidget extends StatelessWidget {
                                 ? Container(
                                     padding: EdgeInsets.all(4),
                                     decoration: ShapeDecoration(
-                                        color: CustomTheme.of(context)
+                                        color: EsamudaayTheme.of(context)
                                             .colors
                                             .backgroundColor,
                                         shape: CircleBorder(),
@@ -88,14 +86,14 @@ class CircleTileWidget extends StatelessWidget {
                                           BoxShadow(
                                               blurRadius: 3.0,
                                               offset: Offset(0, 3),
-                                              color: CustomTheme.of(context)
+                                              color: EsamudaayTheme.of(context)
                                                   .colors
                                                   .shadowColor16)
                                         ]),
                                     child: Icon(
                                       Icons.check,
                                       size: 16,
-                                      color: CustomTheme.of(context)
+                                      color: EsamudaayTheme.of(context)
                                           .colors
                                           .primaryColor,
                                     ),
@@ -108,7 +106,7 @@ class CircleTileWidget extends StatelessWidget {
                                     child: Container(
                                       padding: EdgeInsets.all(4),
                                       decoration: ShapeDecoration(
-                                          color: CustomTheme.of(context)
+                                          color: EsamudaayTheme.of(context)
                                               .colors
                                               .backgroundColor,
                                           shape: CircleBorder(),
@@ -116,14 +114,14 @@ class CircleTileWidget extends StatelessWidget {
                                             BoxShadow(
                                                 blurRadius: 3.0,
                                                 offset: Offset(0, 3),
-                                                color: CustomTheme.of(context)
+                                                color: EsamudaayTheme.of(context)
                                                     .colors
                                                     .shadowColor16)
                                           ]),
                                       child: Icon(
                                         Icons.delete,
                                         size: 16,
-                                        color: CustomTheme.of(context)
+                                        color: EsamudaayTheme.of(context)
                                             .colors
                                             .disabledAreaColor,
                                       ),
@@ -147,7 +145,7 @@ class CircleTileWidget extends StatelessWidget {
                         circleName,
                         maxLines: 1,
                         textAlign: TextAlign.start,
-                        style: CustomTheme.of(context).textStyles.cardTitle,
+                        style: EsamudaayTheme.of(context).textStyles.cardTitle,
                       ),
                       const SizedBox(
                         height: 3,
@@ -155,7 +153,7 @@ class CircleTileWidget extends StatelessWidget {
                       Text(
                         circleDescription,
                         maxLines: 1,
-                        style: CustomTheme.of(context).textStyles.body1,
+                        style: EsamudaayTheme.of(context).textStyles.body1,
                       ),
                     ],
                   ),

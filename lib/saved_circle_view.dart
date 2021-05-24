@@ -13,24 +13,24 @@ class SavedCirclesView extends StatelessWidget {
   ///
   /// The function to be invoked when user taps on the circle tile
   ///
-  final Function onTap;
+  final Function(String) onTap;
 
   ///
   /// Function to be invoked when user taps on the delete icon button
   ///
-  final Function onDelete;
+  final Function(String, String) onDelete;
 
   final String savedCircleLabelLocalisedString;
 
   //final String circleTilePlaceholderImagePath;
 
   const SavedCirclesView(
-      {Key key,
-      @required this.savedCirclesList,
-      @required this.onDelete,
+      {Key? key,
+      required this.savedCirclesList,
+      required this.onDelete,
       //@required this.circleTilePlaceholderImagePath,
-      @required this.onTap,
-      @required this.savedCircleLabelLocalisedString})
+      required this.onTap,
+      required this.savedCircleLabelLocalisedString})
       : super(key: key);
 
   @override
@@ -45,7 +45,7 @@ class SavedCirclesView extends StatelessWidget {
             padding: const EdgeInsets.only(left: 24),
             child: Text(
               savedCircleLabelLocalisedString,
-              style: CustomTheme.of(context).textStyles.sectionHeading2,
+              style: EsamudaayTheme.of(context).textStyles.sectionHeading2,
             ),
           ),
           CircleTileGridView(

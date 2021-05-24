@@ -7,11 +7,11 @@ class TrendingCirclesCarouselView extends StatelessWidget {
   final String trendingCirclesLabelLocalisedString;
 
   const TrendingCirclesCarouselView(
-      {Key key,
-      @required this.trendingCirclesList,
-      @required this.onTap,
+      {Key? key,
+      required this.trendingCirclesList,
+      required this.onTap,
       //@required this.circleTilePlaceholderImagePath,
-      @required this.trendingCirclesLabelLocalisedString})
+      required this.trendingCirclesLabelLocalisedString})
       : super(key: key);
 
   @override
@@ -25,7 +25,7 @@ class TrendingCirclesCarouselView extends StatelessWidget {
           padding: const EdgeInsets.only(left: 23),
           child: Text(
             trendingCirclesLabelLocalisedString,
-            style: CustomTheme.of(context).textStyles.sectionHeading2,
+            style: EsamudaayTheme.of(context).textStyles.sectionHeading2,
           ),
         ),
         const SizedBox(

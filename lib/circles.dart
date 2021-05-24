@@ -3,7 +3,7 @@ library esamudaay_circles;
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:circles/themes/custom_theme.dart';
+import 'package:esamudaay_themes/esamudaay_themes.dart';
 
 part 'circle_info_footer.dart';
 part 'circle_tile_type.dart';
