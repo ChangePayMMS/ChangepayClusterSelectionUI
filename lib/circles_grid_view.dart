@@ -56,7 +56,7 @@ class CircleTileGridView extends StatelessWidget {
                     onDelete!(tilesDataList[index].circleCode,
                         tilesDataList[index].circleId);
                   }
-                : () {},
+                : null,
             circleName: tilesDataList[index].circleName,
             circleDescription: tilesDataList[index].circleDescription,
             //circleTilePlaceholderImagePath: circleTilePlaceholderImagePath,
