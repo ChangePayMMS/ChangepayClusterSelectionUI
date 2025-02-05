@@ -70,8 +70,8 @@ class _SecretCircleBottomSheetState extends State<SecretCircleBottomSheet> {
                 hintStyle: EsamudaayTheme.of(context)
                     .themeData
                     .textTheme
-                    .subtitle1!
-                    .copyWith(
+                    .bodySmall
+                    ?.copyWith(
                         color:
                             EsamudaayTheme.of(context).colors.disabledAreaColor),
                 enabledBorder: OutlineInputBorder(
